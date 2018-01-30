@@ -1,0 +1,135 @@
+{
+  "contractName": "test",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820b334ccafa42bf47848b5c2ba81158d01a546d60d1b4d61c777ce7df5ec349d360029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820b334ccafa42bf47848b5c2ba81158d01a546d60d1b4d61c777ce7df5ec349d360029",
+  "sourceMap": "25:60:1:-;;;43:40;;;;;;;;25:60;;;;;;",
+  "deployedSourceMap": "25:60:1:-;;;;;",
+  "source": "pragma solidity ^0.4.4;\n\ncontract test {\n  function test() {\n    // constructor\n  }\n}\n",
+  "sourcePath": "/Users/Andy/workspace/testProj/contracts/test.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/Andy/workspace/testProj/contracts/test.sol",
+      "exportedSymbols": {
+        "test": [
+          63
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".4"
+          ]
+        },
+        "id": 58,
+        "name": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            63
+          ],
+          "name": "test",
+          "scope": 64
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "test",
+              "payable": false,
+              "scope": 63,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 59,
+                "name": "ParameterList",
+                "src": "56:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 60,
+                "name": "ParameterList",
+                "src": "59:0:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 61,
+                "name": "Block",
+                "src": "59:24:1"
+              }
+            ],
+            "id": 62,
+            "name": "FunctionDefinition",
+            "src": "43:40:1"
+          }
+        ],
+        "id": 63,
+        "name": "ContractDefinition",
+        "src": "25:60:1"
+      }
+    ],
+    "id": 64,
+    "name": "SourceUnit",
+    "src": "0:86:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "1517023464536": {
+      "events": {},
+      "links": {},
+      "address": "0xcb4e0fa7b557600de65f4c617d55414b2f7125c8"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-27T03:24:49.979Z"
+}
