@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device0-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="buytickets.css">
+        <title>Document</title>
+
+        <link rel="stylesheet" type="text/css" href="buytickets.css">
+
+        <script src="../node_modules/web3/dist/web3.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+
+			<h1>Buy Tickets</h1>
+
+            <label for="name" class="col-lg-2 control-label">1 Ticket = 0.001 ETH</label><br>
+
+            <h2 id="message"></h2>
+            <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
+
+            <label id="name">Amount of Ethers you would like to send: </label>
+
+            <input id="ethSent" type="text" onchange="updateTickets()" />
+            <script>
+                function updateTickets()
+                {
+                    ethersSent = $("#ethSent").val();
+					ticketsRecieved = ethersSent*1000;
+					bcbRecieved = ethersSent*2000;
+                    $("#ticketsRecieved").html(ticketsRecieved);
+                    $("#bcbRecieved").html(bcbRecieved);
+                }
+            </script> 
+
+			<p>Lottery tickets you will receive: <span id=""></p>
+			<h2 id="ticketsRecieved"></h2>
+
+			<p>Broncoblocks you will receive: <span id=""></p>
+			<h2 id="bcbRecieved"></h2>
+
+            <button id="button">Buy Tickets</button>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script>
+
+            if (typeof web3 !== 'undefined') {
+                web3 = new Web3(web3.currentProvider);
+            } else {
+                // set the provider you want from Web3.providers
+                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            }
+
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+
+    // bLottery.sol contract
+    var LotteryContract = web3.eth.contract();
+    var Lottery = LotteryContract.at('');
+	var userEvent = Lottery.SetMessage();
+
+		userEvent.watch(function(error, result) {
+			if(!error) {
+				$("#loader").hide();
+				$("#message").html(result.args.message);
+			} else {
+				$("#loader").hide();
+				console.log(error);
+			}
+		});
+
+		$("#button").click(function() {
+			var purchased = ticketsRecieved + " tickets purchased for "+ ethersSent + " ETH";
+            Lottery.sellTickets({from: web3.eth.accounts[0],value: web3.toWei(ethersSent, 'ether')});
+
+		    Lottery.setmessage("Purchase Complete! \n" + purchased);
+
+			$("#loader").show();
+		});
+    
+        </script>
+
+    </body>
+
